@@ -36,6 +36,19 @@
                     <li>
                         <a href="{% url 'listar_productos' %}">Listar Productos</a>
                     </li>
+                    {% if user.is_authenticated %}
+                    <li>
+                        <a href="{% url 'logout' %}">Cerrar Sesion</a>
+                    </li>
+                    <li>
+                        <a href="#">@{{ user.username }}</a>
+                    </li>
+                    {% else %}
+                    <li>
+                        <a href="{% url 'login' %}">Iniciar Sesion</a>
+                    </li>
+
+                    {% endif %}
                 </ul>
             </nav>
 
