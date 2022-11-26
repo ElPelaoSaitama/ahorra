@@ -30,22 +30,30 @@
                         <a href="{% url 'contacto' %}">Contacto</a>
                     </li>
                     <li><a href="{% url 'galeria' %}">Galería</a></li>
+                    {% if perms.app.add_producto %}
                     <li>
                         <a href="{% url 'agregar_producto' %}">Agregar Producto</a>
                     </li>
+                    {% endif %}
+
+                    {% if perms.app.view_producto %}
                     <li>
                         <a href="{% url 'listar_productos' %}">Listar Productos</a>
                     </li>
+                    {% endif %}
                     {% if user.is_authenticated %}
                     <li>
                         <a href="{% url 'logout' %}">Cerrar Sesion</a>
                     </li>
                     <li>
-                        <a href="#">@{{ user.username }}</a>
+                        <a href="#">@{{ user.username | capfirst }}</a>
                     </li>
                     {% else %}
                     <li>
                         <a href="{% url 'login' %}">Iniciar Sesion</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'registro' %}">Registrate</a>
                     </li>
 
                     {% endif %}
@@ -67,16 +75,16 @@
 
 
     <footer>
-        <!-- <div class="marcas">
+        <div class="marcas">
             <img src="{% static 'app/img/footer/apple.png' %}" alt="apple">
             <img src="{% static 'app/img/footer/lenovo.png' %}" alt="lenovo">
             <img src="{% static 'app/img/footer/microsoft.png' %}" alt="microsoft">
             <img src="{% static 'app/img/footer/samsung.png' %}" alt="samsung">
             <img src="{% static 'app/img/footer/xiaomi.png' %}" alt="xiaomi">
         </div>
-        <div class="logo_footer">
-            <img src="{% static 'app/img/tecnomarketpngicono.png' %}" alt="logo">
-        </div> -->
+        <div class="">
+            <img class="logo_footer" src="{% static 'app/img/logo_compara.png' %}" alt="logo">
+        </div>
     </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
