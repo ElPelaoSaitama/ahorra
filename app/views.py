@@ -13,6 +13,13 @@ def home(request):
     data = {
         'productos': productos
     }
+    return render(request,'app/#.html',data)
+
+def categoria(request):
+    categoria = Categoria.objects.all()
+    data = {
+        'categoria': categoria
+    }
     return render(request,'app/home.html',data)
 
 def contacto(request):
@@ -104,4 +111,10 @@ def registro(request):
             return redirect(to='home')
         data["form"] = formulario
     return render(request,'registration/registro.html', data)
-    
+
+def instrumentos(request):
+    productos = Producto.objects.all()
+    data = {
+        'productos': productos
+    }
+    return render(request,'app/categorias/instrumentos.html',data)

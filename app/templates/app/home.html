@@ -35,25 +35,86 @@
     </div>
 </div>
 {% load humanize %}
-<h2>Productos</h2>
-<div class="productos">
-{% for p in productos %}
-<div class="producto">
 
+<h2 class="text-center">Categorias</h2>
+<br>
+<div class="productos container-card">
+    <a href="{% url 'instrumentos' %}">
+        <div class="card container-card" style="width: 18rem;">
+            <img src="../../../media/categorias/guitarra_madera.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <p class="card-text text-center">Instrumentos Musicales</p>
+                <button type="button" class="btn btn-info">ir a...</button>
+            </div>
+        </div>
+    </a>
+    &nbsp; &nbsp; &nbsp;
+
+    <a href="{% url 'instrumentos' %}">
+        <div class="card container-card" style="width: 18rem;">
+            <img src="../../../media/categorias/hunterx_comic.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <p class="card-text text-center">Comics y mangas</p>
+                <button type="button" class="btn btn-info">ir a...</button>
+            </div>
+        </div>
+    </a>
+    &nbsp; &nbsp; &nbsp;
+
+    <a href="{% url 'instrumentos' %}">
+        <div class="card container-card" style="width: 18rem;">
+            <img src="../../../media/categorias/tv_lg.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <p class="card-text text-center">Tecnologia</p>
+                <button type="button" class="btn btn-info">ir a...</button>
+            </div>
+        </div>
+    </a>
+    &nbsp; &nbsp; &nbsp;
+
+    <a href="{% url 'instrumentos' %}">
+        <div class="card container-card" style="width: 18rem;">
+            <img src="../../../media/categorias/taladro.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <p class="card-text text-center">Heramientas</p>
+                <button type="button" class="btn btn-info">ir a...</button>
+            </div>
+        </div>
+    </a>
+    &nbsp; &nbsp; &nbsp;
+
+</div>
+<br><br>
+
+{% endblock %}
+
+
+<!-- <div class="card producto">
     <div class="contenedor_producto">
-        {% if p.producto_imagen %}
-        <img src="{{ p.producto_imagen.url }}" alt="imagen producto">
+        {% if p.categoria_imagen %}
+        <img src="{{ p.categoria_imagen.url }}" alt="imagen producto">
         {% endif %}
-        <div class="detalle">
-            <h5>{{ p.producto_marca | capfirst }}</h5>
+        <div class="card-body detalle">
+            <h5>{{ p.categoria_nombre | capfirst }}</h5>
             <h2>{{ p.producto_nombre | title}}</h2>
             <h3>${{ p.producto_precio |intcomma }}</h3>
         </div>
-
     </div>
-</div>
-{% endfor %}
+</div> -->
+
+<!-- <h2 class="text-center">Categorias</h2>
+<br>
+<div class="productos container-card">
+    {% for p in categoria %}
+    <div class="card container-card" style="width: 18rem;">
+        <img src="{{ p.categoria_imagen.url }}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text text-center">{{ p.categoria_nombre | capfirst }}</p>
+          <button type="button" class="btn btn-info">{{ p.categoria_nombre }}</button>
+        </div>
+      </div>
+      &nbsp; &nbsp; &nbsp;
+    {% endfor %}
 
 </div>
-
-{% endblock %}
+<br><br> -->

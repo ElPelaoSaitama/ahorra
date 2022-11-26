@@ -7,6 +7,12 @@ class Marca(models.Model):
 
     def __str__(self):
         return self.marca_nombre
+class Categoria(models.Model):
+    categoria_nombre = models.CharField(max_length=50)
+    categoria_imagen = models.ImageField(upload_to="categorias", null=True)
+
+    def __str__(self):
+        return self.categoria_nombre
 
 class Producto(models.Model):
     producto_nombre = models.CharField(max_length=50)
@@ -15,6 +21,7 @@ class Producto(models.Model):
     producto_cantidad = models.PositiveIntegerField()
     producto_marca = models.ForeignKey(Marca, on_delete=models.PROTECT)
     producto_imagen = models.ImageField(upload_to="productos", null=True)
+    producto_categoria = models.ForeignKey(Categoria, on_delete=models.PROTECT)
     
     def __str__(self):
         return self.producto_nombre

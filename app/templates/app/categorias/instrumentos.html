@@ -1,0 +1,24 @@
+{% extends 'app/base.html' %}
+
+{% block contenido %}
+
+{% load humanize %}
+
+<h2 class="text-center">Categorias</h2>
+<br>
+<div class="productos">
+    {% for p in categoria %}
+    <a href="{% url 'producto' %}">
+    <div class="card" style="width: 18rem;">
+        <img src="{{ p.producto_imagen.url }}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text text-center">{{ p.producto_nombre | capfirst }}</p>
+        </div>
+      </div>
+    </a>
+      &nbsp; &nbsp; &nbsp;
+    {% endfor %}
+</div>
+<br><br>
+
+{% endblock %}
