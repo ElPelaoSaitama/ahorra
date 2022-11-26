@@ -1,0 +1,83 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block js %}
+<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+      $('.slider').bxSlider({
+          mode: 'fade',//horizontal, vertical, fade
+          auto: true,
+          pause: 2000
+      });
+    });
+</script>
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+
+{% endblock %}
+
+{% block contenido %}
+
+{% load humanize %}
+<br><br><br>
+    <h2>Productos</h2>
+        <div class="productos">
+            {% for p in productos %}
+            <div class="producto">
+
+                <div class="contenedor_producto">
+                    {% if p.producto_imagen %}
+                    <img src="{{ p.producto_imagen.url }}" alt="imagen producto">
+                    {% endif %}
+                    <div class="detalle">
+                        <h5>{{ p.producto_categoria | capfirst }}</h5>
+                        <h5>{{ p.producto_marca | capfirst }}</h5>
+                        <h2>{{ p.producto_nombre | title }}</h2>
+                        <h3>{{ p.producto_precio |intcomma }}</h3>
+                        <center><button type="button" class="btn btn-info">Agregar al carrito</button></center>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+<br><br>
+
+{% endblock %}
+
+
+<!-- <div class="card producto">
+    <div class="contenedor_producto">
+        {% if p.categoria_imagen %}
+        <img src="{{ p.categoria_imagen.url }}" alt="imagen producto">
+        {% endif %}
+        <div class="card-body detalle">
+            <h5>{{ p.categoria_nombre | capfirst }}</h5>
+            <h2>{{ p.producto_nombre | title}}</h2>
+            <h3>${{ p.producto_precio |intcomma }}</h3>
+        </div>
+    </div>
+</div> -->
+
+<!-- <h2 class="text-center">Categorias</h2>
+<br>
+<div class="productos container-card">
+    {% for p in categoria %}
+    <div class="card container-card" style="width: 18rem;">
+        <img src="{{ p.categoria_imagen.url }}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text text-center">{{ p.categoria_nombre | capfirst }}</p>
+          <button type="button" class="btn btn-info">{{ p.categoria_nombre }}</button>
+        </div>
+      </div>
+      &nbsp; &nbsp; &nbsp;
+    {% endfor %}
+
+</div>
+<br><br> -->

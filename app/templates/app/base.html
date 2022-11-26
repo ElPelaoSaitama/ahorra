@@ -30,6 +30,7 @@
                         <a href="{% url 'contacto' %}">Contacto</a>
                     </li>
                     <li><a href="{% url 'galeria' %}">Galería</a></li>
+                    <li><a href="{% url 'productos' %}">Productos</a></li>
                     {% if perms.app.add_producto %}
                     <li>
                         <a href="{% url 'agregar_producto' %}">Agregar Producto</a>

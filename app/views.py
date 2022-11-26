@@ -28,6 +28,13 @@ def home(request):
     }
     return render(request,'app/#.html',data)
 
+def productos(request):
+    productos = Producto.objects.all()
+    data = {
+        'productos': productos
+    }
+    return render(request,'app/productos.html',data)
+
 def categoria(request):
     categoria = Categoria.objects.all()
     data = {
